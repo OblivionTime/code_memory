@@ -1,0 +1,27 @@
+{
+  "name": "ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --mode dev",
+    "build": "vite build --mode pro",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "@highlightjs/vue-plugin": "^2.1.0",
+    "axios": "^1.4.0",
+    "element-plus": "^2.3.4",
+    "highlight.js": "^11.8.0",
+    "path-browserify": "^1.0.1",
+    "vue": "^3.2.47",
+    "vue-clipboard3": "^2.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "sass": "^1.58.1",
+    "sass-loader": "^8.0.2",
+    "vite": "^4.3.2"
+  }
+}
