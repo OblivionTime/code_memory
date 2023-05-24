@@ -1,0 +1,22 @@
+
+
+# system configuration
+system:
+  addr: 8989
+  db-type: mysql
+  #  路由全局前缀
+  router-prefix: "/v1/code_memory/api/"
+
+
+# mysql connect configuration
+mysql:
+  host: "127.0.0.1"
+  port: "3306"
+  config: "charset=utf8mb4&parseTime=True"
+  db-name: "article"
+  username: "root"
+  password: "123456"
+  max-idle-conns: 10
+  max-open-conns: 100
+  singular: true
+  log-mode: false

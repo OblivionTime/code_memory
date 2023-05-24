@@ -1,11 +1,19 @@
 package main
 
 import (
-	"code_memory/db"
-	"code_memory/setup"
+	"code_memory/core"
+	"code_memory/global"
+	"code_memory/initialize"
 )
 
 func main() {
-	db.InitMysql("root:123456@tcp(127.0.0.1:3306)/article?charset=utf8mb4&parseTime=True")
-	setup.InitServer("0.0.0.0:8989")
+	//初始化配置信息
+	global.CONFIG = core.Config()
+	//初始化数据库
+	global.DB = initialize.Gorm()
+	initialize.RegisterTables() // 初始化表
+	// 程序结束前关闭数据库链接
+	db, _ := global.DB.DB()
+	defer db.Close()
+	core.RunWindowsServer()
 }

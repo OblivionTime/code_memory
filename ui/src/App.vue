@@ -273,9 +273,9 @@ function switch_article(category_id2, sub_category_id2) {
 function loadArticleList() {
   getArticleList({ category_id: category_id.value, sub_category_id: sub_category_id.value, "title": search.value, "article_type": article_type.value })
     .then((res) => {
-      article_list.value = res.data
+      article_list.value = res.data.data
       nextTick(() => {
-        let code_list = res.data.filter(item => item.article_type == '代码')
+        let code_list = res.data.data.filter(item => item.article_type == '代码')
         let blocks = document.querySelectorAll('pre');
         blocks.forEach((block, index) => {
           code_dict.value[code_list[index].id] = index
@@ -314,7 +314,7 @@ function loadInfo() {
         let Category_list = []
         let options2 = []
         let restaurants2 = []
-        for (const item of res.data.Category_list) {
+        for (const item of res.data.category_list) {
           let value = { name: item.name, id: item.id, icon: getImgUrl("./assets/frontend.svg"), children: item.children }
           let child = item.children.map((t) => ({ label: t.name, value: t.id }))
           let option = { label: item.name, value: item.id, children: child }
